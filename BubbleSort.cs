@@ -7,18 +7,27 @@ using System.Threading.Tasks;
 
 namespace AlgoritmLab1
 {
-    internal class Sort3
+    internal class BubbleSort
     {
         static int j = 0;
-        public static void LogSort3(long[] vector, long[] argArray)
+        public static void LogSort5(long[] vector, long[] argArray)
         {
-            long composition= 0;
             //считываем время работы алгоритма
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+            long temp;
             for (int i = 0; i < vector.Length; i++)
             {
-                composition *= vector[i];
+                for (int j = i + 1; j < vector.Length; j++)
+                {
+                    if (vector[i] > vector[j])
+                    {
+                        temp = vector[i];
+                        vector[i] = vector[j];
+                        vector[j] = temp;
+                    }
+                }
+
             }
 
             stopwatch.Stop();

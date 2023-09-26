@@ -20,7 +20,11 @@ class Program
                 //2 алгоритм
                 //Sort2.LogSort2(arrVector, argArray);
                 //3 алгоритм
-                Sort3.LogSort3(arrVector, argArray);
+                //Sort3.LogSort3(arrVector, argArray);
+                //4 алгоритм
+                //Sort4.LogSort4(arrVector, argArray);
+                //5 алгоритм
+                BubbleSort.LogSort5(arrVector, argArray);
             }
             //заполняется мульти массив для результатов тиков за все (5 экспериментов)*2000
             for (int i=0; i<argArray.Length; i++ )
@@ -30,7 +34,7 @@ class Program
         }
         //Здесь я привожу полученные 10000 результатов тиков за 5*2000 экспериментов
         //к секундам и кладу в файл
-        double del = 100;
+        double del = 100;//5 итераций*20 тиков=1 секунда средняя
         double[] mediumArr = new double[2000];
         for (int tick= 0; tick<2000;tick++)
         {
@@ -41,7 +45,7 @@ class Program
             }
             mediumArr[tick] = sum/del;
         }
-
+        
         StreamWriter sw = new StreamWriter("D:\\aboba.txt");
         foreach (double i in mediumArr)
         {

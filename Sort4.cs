@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace AlgoritmLab1
 {
-    internal class Sort3
+    internal class Sort4
     {
         static int j = 0;
-        public static void LogSort3(long[] vector, long[] argArray)
+        public static void LogSort4(long[] vector, long[] argArray)
         {
-            long composition= 0;
+            double x = 1.5;
+            double polinomial = 0;
             //считываем время работы алгоритма
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            for (int i = 0; i < vector.Length; i++)
+            for (int i = vector.Length-1; i > 0; i--)
             {
-                composition *= vector[i];
+                polinomial = polinomial * x;
+                polinomial = vector[i-1] + polinomial;
             }
 
             stopwatch.Stop();
