@@ -9,11 +9,11 @@ namespace AlgoritmLab1
 {
     internal class TimSortAlg
     {
-        // C# program to perform TimSort.
+        //константа от которой
         public const int RUN = 32;
 
-        // This function sorts array from left index to
-        // to right index which is of size atmost RUN
+        //  функция сортирует массив от левого индекса к
+        // к правому индексу, который имеет размер при наибольшем RUN
         public static void InsertionSort(long[] arr, int left,
                                          int right)
         {
@@ -30,11 +30,11 @@ namespace AlgoritmLab1
             }
         }
 
-        // merge function merges the sorted runs
+        // функция слияния объединяет отсортированные прогоны
         public static void Merge(long[] arr, int l, int m, int r)
         {
-            // original array is broken in two parts
-            // left and right array
+            // исходный массив разбит на две части
+            // левый и правый массив
             int len1 = m - l + 1, len2 = r - m;
             long[] left = new long[len1];
             long[] right = new long[len2];
@@ -47,8 +47,8 @@ namespace AlgoritmLab1
             int j = 0;
             int k = l;
 
-            // After comparing, we merge those two array
-            // in larger sub array
+            // После сравнения мы объединяем эти два массива
+            // в большем подмассиве
             while (i < len1 && j < len2)
             {
                 if (left[i] <= right[j])
@@ -64,8 +64,8 @@ namespace AlgoritmLab1
                 k++;
             }
 
-            // Copy remaining elements
-            // of left, if any
+            //Скопируйте оставшиеся элементы
+            // слева, если таковые имеются
             while (i < len1)
             {
                 arr[k] = left[i];
@@ -73,8 +73,8 @@ namespace AlgoritmLab1
                 i++;
             }
 
-            // Copy remaining element
-            // of right, if any
+            //Скопируйте оставшиеся элементы
+            // справа, если таковые имеются
             while (j < len2)
             {
                 arr[k] = right[j];

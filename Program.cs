@@ -48,7 +48,7 @@ class Program
                 //PowAlg.QuickPowSort(x,n,argArray);
                 //II пункт
                 //матрицы
-                //MatrixMultiplication.MatrixMul(matrixA,matrixB,argArray);
+                MatrixMultiplication.MatrixMul(matrixA,matrixB,argArray);
 
             }
             //заполняется мульти массив для результатов тиков за все (5 экспериментов)*2000
