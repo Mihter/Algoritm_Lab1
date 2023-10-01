@@ -20,7 +20,7 @@ namespace AlgoritmLab1
             for (int i = vector.Length-1; i > 0; i--)
             {
                 polinomial = polinomial * x;
-                polinomial = vector[i-1] + polinomial;
+                polinomial= vector[i-1] + polinomial;
             }
 
             stopwatch.Stop();

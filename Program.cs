@@ -1,4 +1,5 @@
 ﻿using AlgoritmLab1;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -7,6 +8,7 @@ class Program
         int n = 2000;
         long[] argArray = new long[n];
         long[,] multiArr = new long[5, n];
+        
         for (int count=0; count<5; count++)
         { 
             for (n = 0; n < 2000; n++)
@@ -15,6 +17,19 @@ class Program
                 Random rand = new Random();
                 for (int i = 0; i < arrVector.Length; i++)
                     arrVector[i] = rand.Next();
+                long x = 0;
+                x = rand.Next(-1000,1000);
+                long[,] matrixA = new long[n, n];
+                long[,] matrixB = new long[n, n];
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        matrixA[i, j] = rand.Next();
+                        matrixB[i, j] = rand.Next();
+                    }     
+                }
+                //I пункт
                 //1 алгоритм
                 //Sort1.LogSort(arrVector, argArray);
                 //2 алгоритм
@@ -24,7 +39,17 @@ class Program
                 //4 алгоритм
                 //Sort4.LogSort4(arrVector, argArray);
                 //5 алгоритм
-                BubbleSort.LogSort5(arrVector, argArray);
+                //BubbleSort.LogSort5(arrVector, argArray);
+                //6 алгоритм
+                //QuickSortAlg.QuickSort(arrVector,0, n-1, argArray);
+                //7 алгоритм
+                //TimSortAlg.TimSort(arrVector, n, argArray);
+                //8 алгоритм
+                //PowAlg.QuickPowSort(x,n,argArray);
+                //II пункт
+                //матрицы
+                //MatrixMultiplication.MatrixMul(matrixA,matrixB,argArray);
+
             }
             //заполняется мульти массив для результатов тиков за все (5 экспериментов)*2000
             for (int i=0; i<argArray.Length; i++ )
