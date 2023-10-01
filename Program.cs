@@ -5,20 +5,20 @@ class Program
 {
     public static void Main()
     {
-        int n = 2000;
+        int n = 500;//поменял вместо 2000
         long[] argArray = new long[n];
         long[,] multiArr = new long[5, n];
         
-        for (int count=0; count<5; count++)
+        for (int count=0; count<5; count++)//заменил c<5 на c<1
         { 
-            for (n = 0; n < 2000; n++)
+            for (n = 0; n < 500; n++)//было n<2000
             {
-                long[] arrVector = new long[n];
+                //long[] arrVector = new long[n];
                 Random rand = new Random();
-                for (int i = 0; i < arrVector.Length; i++)
-                    arrVector[i] = rand.Next();
-                long x = 0;
-                x = rand.Next(-1000,1000);
+                //for (int i = 0; i < arrVector.Length; i++)
+                //    arrVector[i] = rand.Next();
+                //long x = 0;
+                //x = rand.Next(-1000,1000);
                 long[,] matrixA = new long[n, n];
                 long[,] matrixB = new long[n, n];
                 for (int i = 0; i < n; i++)
@@ -54,14 +54,14 @@ class Program
             //заполняется мульти массив для результатов тиков за все (5 экспериментов)*2000
             for (int i=0; i<argArray.Length; i++ )
             {
-                multiArr[count, i] = argArray[i];
+                multiArr[count, i] = argArray[i]; 
             }         
         }
         //Здесь я привожу полученные 10000 результатов тиков за 5*2000 экспериментов
         //к секундам и кладу в файл
-        double del = 100;//5 итераций*20 тиков=1 секунда средняя
-        double[] mediumArr = new double[2000];
-        for (int tick= 0; tick<2000;tick++)
+        double del = 50000000;//5 итераций*10млн тиков=1 секунда средняя
+        double[] mediumArr = new double[500];//было 2000
+        for (int tick= 0; tick<500;tick++)//было tick<2000
         {
             long sum = 0;
             for (int i =0; i <5; i++)

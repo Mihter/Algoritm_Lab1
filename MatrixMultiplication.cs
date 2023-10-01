@@ -56,7 +56,7 @@ namespace AlgoritmLab1
 
             argArray[j] = stopwatch.ElapsedTicks;
             //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            if (j == 499)//было 1999
                 j = -1;
             j += 1;
         }

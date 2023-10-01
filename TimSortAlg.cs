@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,43 +85,43 @@ namespace AlgoritmLab1
             }
         }
 
-        // Iterative Timsort function to sort the
-        // array[0...n-1] (similar to merge sort)
+        // функция тимсорт для сортировки массива от 0 до n-1
+        // (аналогичная сортировке слиянием)
         static int j = 0;
         public static void TimSort(long[] arr, int n, long[] argArray)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            // Sort individual subarrays of size RUN
+            // Сортировка отдельных подмассивов по размеру RUN
             for (int i = 0; i < n; i += RUN)
                 InsertionSort(arr, i,
-                              Math.Min((i + RUN - 1), (n - 1)));
+                Math.Min((i + RUN - 1), (n - 1)));
 
-            // Start merging from size RUN (or 32).
-            // It will merge
-            // to form size 64, then
-            // 128, 256 and so on ....
+            //Начинает слияние с размера RUN(или 32).
+            // Он сольется
+            // чтобы сформировать размер 64, затем
+            // 128, 256 и так далее ....
             for (int size = RUN; size < n; size = 2 * size)
             {
 
-                // Pick starting point of
-                // left sub array. We
-                // are going to merge
+                // Выберите начальную точку
+                // левого подмассива. Мы
+                // собираемся объединиться
                 // arr[left..left+size-1]
-                // and arr[left+size, left+2*size-1]
-                // After every merge, we increase
-                // left by 2*size
+                // и arr[left+size, left+2*size-1]
+                // После каждого слияния мы увеличиваем
+                // left на 2*size
                 for (int left = 0; left < n; left += 2 * size)
                 {
 
-                    // Find ending point of left sub array
-                    // mid+1 is starting point of
-                    // right sub array
+                    // Найти конечную точку левого подмассива
+                    // mid+1 - начальная точка
+                    // правого подмассива
                     int mid = left + size - 1;
                     int right = Math.Min((left + 2 * size - 1),
                                          (n - 1));
 
-                    // Merge sub array arr[left.....mid] &
+                    // Объединить подмассив arr[left.....mid] &
                     // arr[mid+1....right]
                     if (mid < right)
                         Merge(arr, left, mid, right);
@@ -131,26 +133,6 @@ namespace AlgoritmLab1
                 j = -1;
             j += 1;
         }
-
-        // Utility function to print the Array
-        //public static void PrintArray(long[] arr, int n)
-        //{
-        //    for (int i = 0; i < n; i++)
-        //        Console.Write(arr[i] + " ");
-        //    Console.Write("\n");
-        //}
-
-        // Driver program to test above function
-        //public static void Main()
-        //{
-            //int[] arr = { -2, 7,  15,  -14, 0, 15,  0, 7,
-            //          -7, -4, -13, 5,   8, -14, 12 };
-            //int n = arr.Length;
-            //TimSort(arr, n);
-
-            //Console.Write("After Sorting Array is\n");
-            //PrintArray(arr, n);
-        //}
     }
 }
 
