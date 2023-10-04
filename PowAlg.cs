@@ -13,44 +13,58 @@ namespace AlgoritmLab1
         static long k = 0;
         static long f = 0;
         static int j = 0;
+        
 
-        public static void QuickPowSort(long x, int n, long[] argArray, int l) 
+        public static int QuickPowSort(long x, int n, long[] argArray, int l) 
         {
+            
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+            int count = 0;
             c = x;
             k = n;
+            count = count + 2;
             if (k % 2 == 1) 
             {
                 f = c;
+                count= count +1;
             }
             else
             {
                 f = 1;
+                count = count + 1;
             }
-            MicroRec();
+            count = MicroRec(count);
             stopwatch.Stop();
             argArray[j] = stopwatch.ElapsedTicks;
             //компенсация выполнения l экспериментов, обнуление индекса для l-1 массива тиков
             if (j == l-1)
                 j = -1;
             j += 1;
+            return count;
         }
-        public static void MicroRec()
+        public static int MicroRec(int count)
         {
             k /= 2;
             c *= c;
+            count = count + 2;
+
             if (k % 2 == 1)
             {
                 f *= c;
+                count = count + 1;
             }
             if (k != 0)
             {
-                MicroRec();
+                
+                count = MicroRec(count);
+                return count;
+
+
             }
             else
             {
-                return;
+                return count;
             }
         }
     }
