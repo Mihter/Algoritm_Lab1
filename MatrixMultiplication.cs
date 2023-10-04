@@ -7,7 +7,7 @@ namespace AlgoritmLab1
     class MatrixMultiplication
     {
         static int j = 0;
-        public static void MatrixMul(long[,] matrixOne, long[,] matrixTwo, long[] argArray)
+        public static void MatrixMul(long[,] matrixOne, long[,] matrixTwo, long[] argArray,int n)
         {
             /*вывод первых двух массивов
             for(int visota = 0; visota < matrixOne.GetLength(1); visota++)
@@ -55,8 +55,8 @@ namespace AlgoritmLab1
             */
 
             argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 499)//было 1999
+            //компенсация выполнения n экспериментов, обнуление индекса для n массива тиков
+            if (j == n-1)//было 1999
                 j = -1;
             j += 1;
         }

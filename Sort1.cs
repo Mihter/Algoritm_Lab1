@@ -11,23 +11,22 @@ namespace AlgoritmLab1
      class Sort1
     {
         static int j = 0;
-        public static void LogSort(int[]vector, long[]argArray)
+        public static void LogSort(long[]vector, long[]timeArray, int n)
         {
+            long a = 0;
             //считываем время работы алгоритма
             Stopwatch stopwatch=new Stopwatch();
             stopwatch.Start();
-            for (int i = 0; i < vector.Length; i++) 
-            {
-                vector[i] = 1;
-                //возведение в степень 0
-                //double argument1 = vector[i];
-                //double function = Math.Pow(argument1,0);
-            }
-
-            stopwatch.Stop();
-            argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999) 
+            if (vector.Length != 0)                     //for (int i = 0; i < vector.Length; i++) 
+            {                                           //{
+                a = vector[0];                          //    vector[i] = 1;
+            }                                           //возведение в степень 0
+            stopwatch.Stop();                           //double argument1 = vector[i];
+                                                        //double function = Math.Pow(argument1,0);
+            timeArray[0] = 0;                           //}
+            timeArray[j] = stopwatch.ElapsedTicks;
+            //компенсация выполнения n экспериментов, обнуление индекса для n-1 массива тиков
+            if (j == n-1) 
                 j = -1;
             j+= 1;
         }

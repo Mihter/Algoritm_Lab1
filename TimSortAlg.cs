@@ -88,7 +88,7 @@ namespace AlgoritmLab1
         // функция тимсорт для сортировки массива от 0 до n-1
         // (аналогичная сортировке слиянием)
         static int j = 0;
-        public static void TimSort(long[] arr, int n, long[] argArray)
+        public static void TimSort(long[] arr, int n, long[] timeArray, int N)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -128,8 +128,8 @@ namespace AlgoritmLab1
                 }
             }
             stopwatch.Stop();
-            argArray[j] = stopwatch.ElapsedTicks;
-            if (j == 1999)
+            timeArray[j] = stopwatch.ElapsedTicks;
+            if (j == N - 1)
                 j = -1;
             j += 1;
         }

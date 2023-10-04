@@ -14,7 +14,7 @@ namespace AlgoritmLab1
         static long f = 0;
         static int j = 0;
 
-        public static void QuickPowSort(long x, int n, long[] argArray) 
+        public static void QuickPowSort(long x, int n, long[] argArray, int l) 
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -31,8 +31,8 @@ namespace AlgoritmLab1
             MicroRec();
             stopwatch.Stop();
             argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            //компенсация выполнения l экспериментов, обнуление индекса для l-1 массива тиков
+            if (j == l-1)
                 j = -1;
             j += 1;
         }

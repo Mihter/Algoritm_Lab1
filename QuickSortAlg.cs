@@ -40,7 +40,7 @@ namespace AlgoritmLab1
 
         static int j = 0;
         //быстрая сортировка
-        public static long[] QuickSort(long[] array, int minIndex, int maxIndex, long[] argArray)
+        public static long[] QuickSort(long[] array, int minIndex, int maxIndex, long[] argArray, int n)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -50,13 +50,13 @@ namespace AlgoritmLab1
             }
 
             var pivotIndex = Partition(array, minIndex, maxIndex);
-            QuickSort(array, minIndex, pivotIndex - 1, argArray);
-            QuickSort(array, pivotIndex + 1, maxIndex, argArray);
+            QuickSort(array, minIndex, pivotIndex - 1, argArray,n);
+            QuickSort(array, pivotIndex + 1, maxIndex, argArray,n);
 
             stopwatch.Stop();
             argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            //компенсация выполнения n экспериментов, обнуление индекса для n-1 массива тиков
+            if (j == n-1)
                 j = -1;
             j += 1;
             return array;

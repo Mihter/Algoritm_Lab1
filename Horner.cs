@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AlgoritmLab1
 {
-    internal class Sort4
+    internal class Horner
     {
         static int j = 0;
-        public static void LogSort4(long[] vector, long[] argArray)
+        public static void HornerSort(long[] vector, long[] timeArray, int n)
         {
             double x = 1.5;
             double polinomial = 0;
@@ -24,9 +24,9 @@ namespace AlgoritmLab1
             }
 
             stopwatch.Stop();
-            argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            timeArray[j] = stopwatch.ElapsedTicks;
+            //компенсация выполнения n экспериментов, обнуление индекса для n-1 массива тиков
+            if (j == n-1)
                 j = -1;
             j += 1;
         }

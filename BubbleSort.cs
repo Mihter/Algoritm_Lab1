@@ -10,7 +10,7 @@ namespace AlgoritmLab1
     internal class BubbleSort
     {
         static int j = 0;
-        public static void LogSort5(long[] vector, long[] argArray)
+        public static void LogSort5(long[] vector, long[] timeArray,int n)
         {
             //считываем время работы алгоритма
             Stopwatch stopwatch = new Stopwatch();
@@ -27,13 +27,11 @@ namespace AlgoritmLab1
                         vector[j] = temp;
                     }
                 }
-
             }
-
             stopwatch.Stop();
-            argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            timeArray[j] = stopwatch.ElapsedTicks;
+            //компенсация выполнения n экспериментов, обнуление индекса для n-1 массива тиков
+            if (j == n-1)
                 j = -1;
             j += 1;
         }
