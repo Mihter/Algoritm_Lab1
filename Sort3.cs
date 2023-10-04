@@ -10,21 +10,21 @@ namespace AlgoritmLab1
     internal class Sort3
     {
         static int j = 0;
-        public static void LogSort3(long[] vector, long[] argArray)
+        public static void LogSort3(long[] vector, long[] timeArray, int n)
         {
-            long sum = 0;
+            long composition= 0;
             //считываем время работы алгоритма
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             for (int i = 0; i < vector.Length; i++)
             {
-                sum *= vector[i];
+                composition *= vector[i];
             }
 
             stopwatch.Stop();
-            argArray[j] = stopwatch.ElapsedTicks;
-            //компенсация выполнения 5 экспериментов, обнуление индекса для 2-5 массива тиков
-            if (j == 1999)
+            timeArray[j] = stopwatch.ElapsedTicks;
+            //компенсация выполнения n экспериментов, обнуление индекса для n-1 массива тиков
+            if (j == n-1)
                 j = -1;
             j += 1;
         }
